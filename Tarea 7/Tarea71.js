@@ -7,9 +7,9 @@ function fibonacci(n) {
     return [0, 1];
   }
 
-  const series = [0, 1];
+  const serie = [0, 1];
   for (let i = 2; i < n; i++) {
-    const nextValue = series[i - 1] + series[i - 2];
+    const nextValue = serie[i - 1] + serie[i - 2];
     serie.push(nextValue);
   }
 
