@@ -1,0 +1,36 @@
+function ElemenDominante(arreglo) {
+    const elementosDominantes = [];
+    const longitud = arreglo.length;
+
+    for (let i = 0; i < longitud; i++) {
+        let Dominante = true;
+        for (let j = i + 1; j < longitud; j++) {
+            if (arreglo[i] <= arreglo[j]) {
+                Dominante = false;
+                break;
+            }
+        }
+        if (Dominante) {
+            elementosDominantes.push(arreglo[i]);
+        }
+    }
+
+    // Se verifica el último elemento(dominante)
+    elementosDominantes.push(arreglo[longitud - 1]);
+
+    return elementosDominantes;
+}
+
+//Ingresando datos del usuario
+const arreglo = [];
+for (let i = 0; i < 5; i++) {
+    let elemento = parseInt(prompt(`Ingrese el elemento ${i + 1}:`));
+    // Verifica si el elemento está dentro del rango permitido
+    while (elemento < -1000 || elemento > 1000) {
+        elemento = parseInt(prompt("Ingrese un elemento válido entre el rango de 1000"));
+    }
+    arreglo.push(elemento);
+}
+//Imprime el resultado
+const elementosDominantes = ElemenDominante(arreglo);
+console.log("Los elementos dominantes en el arreglo son:", elementosDominantes);
